@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/style.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Date</title>
+	<script src="/chartjs/chart.umd.js"></script>
+</head>
+<body>
+	<h1>Weather for $$$DATE$$$</h1>
+
+	<div id="weather-table">$$$WEATHER_INFO$$$</div>
+
+	<h2>Temperature Overview</h2>
+	<canvas id="weatherChart" width="400" height="200"></canvas>
+
+	<div style="margin-top: 20px;">
+		<button id="prevDate">⬅️ Previous Date</button>
+		<button id="nextDate">Next Date ➡️</button>
+	</div>
+
+	<p><a href="/">Back to all dates</a></p>
+
+	<script>
+		// This is replaced dynamically by Express
+		const weatherData = $$$CHART_DATA$$$;
+
+		// Chart.js visualization
+		const ctx = document.getElementById('weatherChart').getContext('2d');
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Actual Mean', 'Actual Min', 'Actual Max', 'Average Min', 'Average Max'],
+				datasets: [{
+					label: 'Temperature (°F)',
+					data: [
+						weatherData.actual_mean_temp,
+						weatherData.actual_min_temp,
+						weatherData.actual_max_temp,
+						weatherData.average_min_temp,
+						weatherData.average_max_temp
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: { y: { beginAtZero: true } }
+			}
+		});
+
+		// Navigation Buttons
+		document.getElementById('prevDate').addEventListener('click', () => {
+			if (weatherData.prevDate) {
+				window.location.href = '/date/' + weatherData.prevDate;
+			} else {
+				alert('No previous date available.');
+			}
+		});
+
+		document.getElementById('nextDate').addEventListener('click', () => {
+			if (weatherData.nextDate) {
+				window.location.href = '/date/' + weatherData.nextDate;
+			} else {
+				alert('No next date available.');
+			}
+		});
+	</script>
+</body>
+</html>

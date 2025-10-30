@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Record Max Temp</title>
+  <script src="/chartjs/chart.umd.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    canvas { max-width: 800px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Weather Records with Record Max Temp = $$$TEMP$$$</h1>
+  <a href="/">← Back to Home</a>
+  <br><br>
+  $$$WEATHER_TABLE$$$
+
+  <h2>Temperature Chart</h2>
+  <canvas id="tempChart"></canvas>
+
+  <script>
+    const chartData = $$$CHART_DATA$$$;
+
+    const ctx = document.getElementById('tempChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: chartData.map(d => d.date),
+        datasets: [
+          {
+            label: 'Actual Max Temp',
+            data: chartData.map(d => d.actual_max_temp),
+            borderWidth: 2,
+            borderColor: 'red',
+            fill: false
+          },
+          {
+            label: 'Actual Mean Temp',
+            data: chartData.map(d => d.actual_mean_temp),
+            borderWidth: 2,
+            borderColor: 'orange',
+            fill: false
+          },
+          {
+            label: 'Actual Min Temp',
+            data: chartData.map(d => d.actual_min_temp),
+            borderWidth: 2,
+            borderColor: 'blue',
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: false },
+          x: { title: { display: true, text: 'Date' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

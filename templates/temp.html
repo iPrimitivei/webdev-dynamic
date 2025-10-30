@@ -1,10 +1,46 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TEMP</title>
-</head>
-<body>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYC Temperature Details</title>
+  </head>
+  <body>
+    <h1>Days that hit $$$TEMP_VALUE$$$°F</h1>
+
+    <nav>
+      <a href="/">All Dates</a>
+      <a href="/temp">By Max Temp</a>
+      <a href="/recordmaxtemp">By Max Record Temp</a>
+    </nav>
+
+    <section id="prevnext">
+      <p>$$$PREV_LINK$$$ &nbsp;|&nbsp; $$$NEXT_LINK$$$</p>
+    </section>
+
+    <section id="data-table">
+      <h2>Matching Dates</h2>
+      <table border="1" cellspacing="0" cellpadding="4">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Mean Temp (°F)</th>
+            <th>Min / Max (°F)</th>
+            <th>Precip (in)</th>
+          </tr>
+        </thead>
+        <tbody>
+          $$$DAY_ROWS$$$
+        </tbody>
+      </table>
+    </section>
+
+    <section id="chart">
+      <h2>Mean Temp on These Days</h2>
+      $$$CHART_BLOCK$$$
+    </section>
+
+    <p><a href="/temp">Back to all temperatures</a></p>
+  </body>
 </html>
+

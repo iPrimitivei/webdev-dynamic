@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYC High Temperatures</title>
+  </head>
+  <body>
+    <h1>Recorded NYC High Temperatures</h1>
+
+    <nav>
+      <a href="/">All Dates</a>
+      <a href="/temp">By Max Temp</a>
+      <a href="/recordmaxtemp">By Max Record Temp</a>
+    </nav>
+
+    <p>
+      Click a temperature to see every date where NYC actually reached that
+      high.
+    </p>
+
+    <table border="1" cellspacing="0" cellpadding="4">
+      <thead>
+        <tr>
+          <th>High Temp (°F)</th>
+          <th>See Matching Dates</th>
+        </tr>
+      </thead>
+      <tbody>
+        $$$TEMP_LIST$$$
+      </tbody>
+    </table>
+  </body>
+</html>
+
