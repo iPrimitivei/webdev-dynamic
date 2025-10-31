@@ -3,10 +3,15 @@
     "description": "Dynamic Server",
     "version": "1.0.0",
     "author": {
-        "name": "",
-        "email": ""
+        "name": "Alex Wodarski",
+        "email": "woda7502@stthomas.edu"
     },
-    "contributors": [],
+    "contributors": [
+        {
+            "name": "Angelika Vinorova",
+            "email": "vino8924@stthomas.edu"
+        }
+    ],
     "repository": {},
     "dependencies": {
         "chart.js": "^4.5.1",
